@@ -199,3 +199,20 @@ app_license = "MIT"
 # auth_hooks = [
 #	"eda.auth.validate"
 # ]
+
+from eda.rabbitMQ.consumer import RabbitMQConsumer,my_callback
+from frappe import local
+import threading
+def start_consuming():
+    consumer = RabbitMQConsumer(my_callback)
+    consumer.start_consuming()
+    print("Consumer started")
+
+# start_consuming()
+
+# from frappe.utils.background_jobs import enqueue
+# enqueue(start_consuming)
+
+thread = threading.Thread(target=start_consuming())
+thread.start()
+# thread.join()

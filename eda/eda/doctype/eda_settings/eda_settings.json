@@ -1,0 +1,101 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-05-03 23:29:32.077383",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "server_info_section",
+  "url",
+  "credentials_section",
+  "user",
+  "passwd",
+  "configuration_section",
+  "exchange",
+  "column_break_jc0bz",
+  "routing_key",
+  "column_break_jzwq1",
+  "queue_name"
+ ],
+ "fields": [
+  {
+   "fieldname": "server_info_section",
+   "fieldtype": "Section Break",
+   "label": "Server Info"
+  },
+  {
+   "fieldname": "url",
+   "fieldtype": "Data",
+   "label": "Url "
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "credentials_section",
+   "fieldtype": "Section Break",
+   "label": "Credentials"
+  },
+  {
+   "fieldname": "user",
+   "fieldtype": "Data",
+   "label": "User"
+  },
+  {
+   "fieldname": "passwd",
+   "fieldtype": "Password",
+   "label": "Passwd"
+  },
+  {
+   "fieldname": "configuration_section",
+   "fieldtype": "Section Break",
+   "label": "Configuration"
+  },
+  {
+   "fieldname": "exchange",
+   "fieldtype": "Data",
+   "label": "Exchange"
+  },
+  {
+   "fieldname": "column_break_jc0bz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "routing_key",
+   "fieldtype": "Data",
+   "label": "Routing Key"
+  },
+  {
+   "fieldname": "column_break_jzwq1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "queue_name",
+   "fieldtype": "Data",
+   "label": "Queue Name"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2023-05-03 23:29:32.077383",
+ "modified_by": "Administrator",
+ "module": "Eda",
+ "name": "EDA Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
