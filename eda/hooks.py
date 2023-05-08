@@ -113,23 +113,23 @@ app_license = "MIT"
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
-#	"all": [
-#		"eda.tasks.all"
-#	],
-#	"daily": [
-#		"eda.tasks.daily"
-#	],
-#	"hourly": [
-#		"eda.tasks.hourly"
-#	],
-#	"weekly": [
-#		"eda.tasks.weekly"
-#	],
-#	"monthly": [
-#		"eda.tasks.monthly"
-#	],
-# }
+scheduler_events = {
+	"all": [
+		"eda.rabbitMQ.consumer.cheking_hook_scheduler"
+	],
+	# "daily": [
+	# 	"eda.tasks.daily"
+	# ],
+	# "hourly": [
+	# 	"eda.tasks.hourly"
+	# ],
+	# "weekly": [
+	# 	"eda.tasks.weekly"
+	# ],
+	# "monthly": [
+	# 	"eda.tasks.monthly"
+	# ],
+}
 
 # Testing
 # -------
@@ -200,19 +200,11 @@ app_license = "MIT"
 #	"eda.auth.validate"
 # ]
 
-from eda.rabbitMQ.consumer import RabbitMQConsumer,my_callback
-from frappe import local
-import threading
-def start_consuming():
-    consumer = RabbitMQConsumer(my_callback)
-    consumer.start_consuming()
-    print("Consumer started")
 
+# from eda.rabbitMQ.consumer import start_consuming
+print("*"*100)
+print("sidhu")
+print("*"*100)
+
+long_running_processes = ["eda.rabbitMQ.consumer.start_consuming"]
 # start_consuming()
-
-# from frappe.utils.background_jobs import enqueue
-# enqueue(start_consuming)
-
-thread = threading.Thread(target=start_consuming())
-thread.start()
-# thread.join()

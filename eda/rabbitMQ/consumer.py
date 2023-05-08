@@ -5,11 +5,8 @@ import frappe
 class RabbitMQConsumer:
     def __init__(self, callback):
         self.settings = eda_settings()
-        
         self.callback = callback
         self.queue_name = self.settings.queue_name
-        print("^"*100)
-        print("self.settings.user",self.settings.user)
         # Set RabbitMQ credentials
         credentials = pika.PlainCredentials(self.settings.user, self.settings.get_password('passwd'))
 
@@ -35,10 +32,19 @@ class RabbitMQConsumer:
 
 
 def my_callback(ch, method, properties, body):
-    print("*"*100)
-    print(f"Received message: {body}")
-    frappe.log_error(f"Received message: {body}", 'Consumer error')
-    # import time
-    # time.sleep(5)
+    frappe.log_error(f"{body} <--->", 'Consumer error')
+    
 
-my_callback("","","","")
+
+def start_consuming():
+    print("consumer started")
+
+    consumer = RabbitMQConsumer(my_callback)
+    consumer.start_consuming()
+    return True
+    
+
+
+def cheking_hook_scheduler():
+    print("running in cron scheduler_events")
+    frappe.log_error(f"scheduler_events <--->", 'Consumer error')
