@@ -112,11 +112,14 @@ app_license = "MIT"
 
 # Scheduled Tasks
 # ---------------
-
+print("*"*40," EDA Scheduler Start ","*"*40)
 scheduler_events = {
-	"all": [
-		"eda.rabbitMQ.consumer.cheking_hook_scheduler"
-	],
+    "cron":{
+         "* * * * *":["eda.rabbitMQ.consumer.start_consuming"]
+	}
+	# "all": [
+	# 	"eda.rabbitMQ.consumer.printme"
+	# ],
 	# "daily": [
 	# 	"eda.tasks.daily"
 	# ],
@@ -130,7 +133,7 @@ scheduler_events = {
 	# 	"eda.tasks.monthly"
 	# ],
 }
-
+print("*"*103)
 # Testing
 # -------
 
@@ -199,12 +202,3 @@ scheduler_events = {
 # auth_hooks = [
 #	"eda.auth.validate"
 # ]
-
-
-# from eda.rabbitMQ.consumer import start_consuming
-print("*"*100)
-print("sidhu")
-print("*"*100)
-
-long_running_processes = ["eda.rabbitMQ.consumer.start_consuming"]
-# start_consuming()

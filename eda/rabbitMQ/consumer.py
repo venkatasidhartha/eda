@@ -1,50 +1,39 @@
 import pika
+from pika.exchange_type import ExchangeType
 from eda.rabbitMQ.utility import eda_settings
 import frappe
-
-class RabbitMQConsumer:
-    def __init__(self, callback):
-        self.settings = eda_settings()
-        self.callback = callback
-        self.queue_name = self.settings.queue_name
-        # Set RabbitMQ credentials
-        credentials = pika.PlainCredentials(self.settings.user, self.settings.get_password('passwd'))
-
-        # Connect to RabbitMQ server
-        parameters = pika.ConnectionParameters(self.settings.url, credentials=credentials)
-        self.connection = pika.BlockingConnection(parameters)
-        self.channel = self.connection.channel()
-
-        # Declare queue
-        self.channel.queue_declare(queue=self.queue_name)
-
-        # Start consuming messages from queue
-        self.channel.basic_consume(queue=self.queue_name, on_message_callback=self.callback, auto_ack=True)
-
-    def start_consuming(self):
-        self.channel.start_consuming()
-
-    def stop_consuming(self):
-        self.channel.stop_consuming()
-
-    def close_connection(self):
-        self.connection.close()
-
-
-def my_callback(ch, method, properties, body):
-    frappe.log_error(f"{body} <--->", 'Consumer error')
-    
-
+import time
+from eda.event_handler.dynamic_import import executer
+import json
 
 def start_consuming():
-    print("consumer started")
-
-    consumer = RabbitMQConsumer(my_callback)
-    consumer.start_consuming()
-    return True
-    
-
-
-def cheking_hook_scheduler():
-    print("running in cron scheduler_events")
-    frappe.log_error(f"scheduler_events <--->", 'Consumer error')
+    settings = eda_settings()
+    frappe.log_error(f" consumer program started", 'wait for execute')
+    queue_name = settings.queue_name
+    exchange = settings.exchange
+    routing_key = settings.routing_key
+    # Set credentials
+    credentials = pika.PlainCredentials(settings.user, settings.get_password('passwd'))
+    # Connect to RabbitMQ server
+    connection = pika.BlockingConnection(pika.ConnectionParameters(settings.url, credentials=credentials))
+    channel = connection.channel()
+    # Declare the topic exchange
+    channel.exchange_declare(exchange=exchange, exchange_type=ExchangeType.topic)
+    # Declare a queue for this consumer
+    channel.queue_declare(queue_name, exclusive=False)
+    # Bind the queue to the exchange with the routing key
+    # binding_key = 'important.events.error'
+    channel.queue_bind(exchange=exchange, queue=queue_name, routing_key=routing_key)
+    # Poll the queue for new messages
+    while True:
+        method_frame, header_frame, body = channel.basic_get(queue=queue_name, auto_ack=True)
+        if method_frame:
+            # A message is available, process it
+            print("Received message:", body.decode())
+            frappe.log_error(f"{body.decode()}", 'Consumer error new data from cron job')
+            executer(json.loads(body.decode()))
+            # connection.close()
+            # break
+        else:
+            # No message available, sleep for some time before polling again
+            time.sleep(1)
