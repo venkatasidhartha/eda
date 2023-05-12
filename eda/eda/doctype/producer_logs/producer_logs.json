@@ -1,0 +1,104 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-05-12 12:34:14.511393",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "doctype_name",
+  "column_break_ovqez",
+  "docname",
+  "section_break_x5e08",
+  "timestamp",
+  "column_break_jzhm6",
+  "routed_to",
+  "column_break_tpgi6",
+  "hash",
+  "section_break_lpsfj",
+  "payload",
+  "error_log"
+ ],
+ "fields": [
+  {
+   "fieldname": "doctype_name",
+   "fieldtype": "Data",
+   "label": "Doctype Name"
+  },
+  {
+   "fieldname": "column_break_ovqez",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "docname",
+   "fieldtype": "Data",
+   "label": "Docname"
+  },
+  {
+   "fieldname": "section_break_x5e08",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "timestamp",
+   "fieldtype": "Data",
+   "label": "Timestamp"
+  },
+  {
+   "fieldname": "column_break_jzhm6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "hash",
+   "fieldtype": "Data",
+   "label": "Hash"
+  },
+  {
+   "fieldname": "section_break_lpsfj",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "payload",
+   "fieldtype": "Code",
+   "label": "Payload"
+  },
+  {
+   "fieldname": "error_log",
+   "fieldtype": "Code",
+   "label": "Error Log"
+  },
+  {
+   "fieldname": "routed_to",
+   "fieldtype": "Data",
+   "label": "Routed To"
+  },
+  {
+   "fieldname": "column_break_tpgi6",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-05-12 15:24:40.918032",
+ "modified_by": "Administrator",
+ "module": "Eda",
+ "name": "Producer Logs",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
