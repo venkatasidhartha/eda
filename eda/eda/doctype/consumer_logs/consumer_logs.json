@@ -1,0 +1,104 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-05-12 12:33:26.922742",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "doctype_name",
+  "column_break_k2bv8",
+  "docname",
+  "section_break_z8xd4",
+  "timestamp",
+  "column_break_do0gf",
+  "hash",
+  "column_break_zss5k",
+  "status",
+  "section_break_yr6g0",
+  "payload",
+  "error_log"
+ ],
+ "fields": [
+  {
+   "fieldname": "doctype_name",
+   "fieldtype": "Data",
+   "label": "Doctype Name"
+  },
+  {
+   "fieldname": "column_break_k2bv8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "docname",
+   "fieldtype": "Data",
+   "label": "Docname"
+  },
+  {
+   "fieldname": "section_break_z8xd4",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "timestamp",
+   "fieldtype": "Data",
+   "label": "Timestamp"
+  },
+  {
+   "fieldname": "column_break_do0gf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "hash",
+   "fieldtype": "Data",
+   "label": "Hash"
+  },
+  {
+   "fieldname": "column_break_zss5k",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Data",
+   "label": "Status"
+  },
+  {
+   "fieldname": "section_break_yr6g0",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "payload",
+   "fieldtype": "Code",
+   "label": "Payload"
+  },
+  {
+   "fieldname": "error_log",
+   "fieldtype": "Code",
+   "label": "Error Log"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-05-12 15:23:36.748269",
+ "modified_by": "Administrator",
+ "module": "Eda",
+ "name": "Consumer Logs",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
