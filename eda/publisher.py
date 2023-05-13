@@ -8,13 +8,9 @@ from eda.hashing import generate_hash
 class site_routing_key:
     erp = ""
     supplier = ""
-    procurement = ""
+    procurement = "procurement.karkhana.io"
 
 class Publisher:
-
-    def servers(self):
-        return site_routing_key()
-
     def send(self,message:dict,to_server:str):
         """
             {

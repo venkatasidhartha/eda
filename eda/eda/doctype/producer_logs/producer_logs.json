@@ -44,12 +44,12 @@
   },
   {
    "fieldname": "payload",
-   "fieldtype": "Code",
+   "fieldtype": "Long Text",
    "label": "Payload"
   },
   {
    "fieldname": "error_log",
-   "fieldtype": "Code",
+   "fieldtype": "Long Text",
    "label": "Error Log"
   },
   {
@@ -73,7 +73,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-05-13 08:50:09.034165",
+ "modified": "2023-05-13 11:52:54.438050",
  "modified_by": "Administrator",
  "module": "Eda",
  "name": "Producer Logs",

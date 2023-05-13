@@ -18,10 +18,10 @@ class Consumer:
                 "doc_uuid":record["doc_uuid"],
                 "timestamp":calendar.timegm(time.gmtime()),
                 "hash":record["hash"],
-                "payload":record["payload"]
+                "payload":str(record["payload"])
                 }
             if "error_log" in record:
-                doc["error_log"] = record["error_log"]
+                doc["error_log"] = str(record["error_log"])
             if "status" in record and record["status"] != None:
                 doc["status"] = record["status"]
             

@@ -7,6 +7,7 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "switch",
   "server_info_section",
   "url",
   "credentials_section",
@@ -73,12 +74,18 @@
    "fieldname": "queue_name",
    "fieldtype": "Data",
    "label": "Queue Name"
+  },
+  {
+   "default": "0",
+   "fieldname": "switch",
+   "fieldtype": "Check",
+   "label": "switch"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2023-05-03 23:29:32.077383",
+ "modified": "2023-05-13 12:06:32.146825",
  "modified_by": "Administrator",
  "module": "Eda",
  "name": "EDA Settings",

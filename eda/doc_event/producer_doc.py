@@ -19,14 +19,14 @@ class Producer:
                 "timestamp":calendar.timegm(time.gmtime()),
                 "routed_to":record["routed_to"],
                 "hash":record["hash"],
-                "payload":record["payload"],
-                "error_log":record["error_log"]
+                "payload":str(record["payload"]),
+                "error_log":str(record["error_log"])
             }
             new_doc = frappe.get_doc(doc)
             new_doc.save(ignore_permissions=True)
             return new_doc
         except Exception as error:
-            frappe.log_error(titile="Producer Logs Doctype Insert Failed",message=frappe.get_traceback())
+            frappe.log_error(title="Producer Logs Doctype Insert Failed",message=frappe.get_traceback())
 
 
     def update(self,record:dict):
