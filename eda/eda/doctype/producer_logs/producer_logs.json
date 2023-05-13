@@ -7,10 +7,9 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "doctype_name",
-  "column_break_ovqez",
-  "docname",
   "section_break_x5e08",
+  "doc_uuid",
+  "column_break_ujz58",
   "timestamp",
   "column_break_jzhm6",
   "routed_to",
@@ -21,20 +20,6 @@
   "error_log"
  ],
  "fields": [
-  {
-   "fieldname": "doctype_name",
-   "fieldtype": "Data",
-   "label": "Doctype Name"
-  },
-  {
-   "fieldname": "column_break_ovqez",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "docname",
-   "fieldtype": "Data",
-   "label": "Docname"
-  },
   {
    "fieldname": "section_break_x5e08",
    "fieldtype": "Section Break"
@@ -75,11 +60,20 @@
   {
    "fieldname": "column_break_tpgi6",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "doc_uuid",
+   "fieldtype": "Data",
+   "label": "Doc UUID"
+  },
+  {
+   "fieldname": "column_break_ujz58",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-05-12 15:24:40.918032",
+ "modified": "2023-05-13 08:50:09.034165",
  "modified_by": "Administrator",
  "module": "Eda",
  "name": "Producer Logs",

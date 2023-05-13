@@ -7,10 +7,9 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "doctype_name",
-  "column_break_k2bv8",
-  "docname",
   "section_break_z8xd4",
+  "doc_uuid",
+  "column_break_60ny2",
   "timestamp",
   "column_break_do0gf",
   "hash",
@@ -21,20 +20,6 @@
   "error_log"
  ],
  "fields": [
-  {
-   "fieldname": "doctype_name",
-   "fieldtype": "Data",
-   "label": "Doctype Name"
-  },
-  {
-   "fieldname": "column_break_k2bv8",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "docname",
-   "fieldtype": "Data",
-   "label": "Docname"
-  },
   {
    "fieldname": "section_break_z8xd4",
    "fieldtype": "Section Break"
@@ -58,9 +43,11 @@
    "fieldtype": "Column Break"
   },
   {
+   "default": "Received",
    "fieldname": "status",
-   "fieldtype": "Data",
-   "label": "Status"
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Received\nProcessed\nError"
   },
   {
    "fieldname": "section_break_yr6g0",
@@ -75,11 +62,20 @@
    "fieldname": "error_log",
    "fieldtype": "Code",
    "label": "Error Log"
+  },
+  {
+   "fieldname": "doc_uuid",
+   "fieldtype": "Data",
+   "label": "Doc UUID"
+  },
+  {
+   "fieldname": "column_break_60ny2",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-05-12 15:23:36.748269",
+ "modified": "2023-05-13 08:48:58.365085",
  "modified_by": "Administrator",
  "module": "Eda",
  "name": "Consumer Logs",
