@@ -21,12 +21,12 @@ def start_consuming():
         channel.queue_bind(exchange=exchange, queue=queue_name, routing_key=routing_key)
         constumer_used = 0
         while True:
+            if constumer_used == 10:
+                connection.close()
+                break
             method_frame, header_frame, body = channel.basic_get(queue=queue_name, auto_ack=True)
             if method_frame:
                 executer(json.loads(body.decode()))
             else:
                 time.sleep(10)
-            if constumer_used == 1000:
-                connection.close()
-                break
-            constumer_used+=1
+                constumer_used+=1
