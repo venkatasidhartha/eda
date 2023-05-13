@@ -55,12 +55,12 @@
   },
   {
    "fieldname": "payload",
-   "fieldtype": "Code",
+   "fieldtype": "Long Text",
    "label": "Payload"
   },
   {
    "fieldname": "error_log",
-   "fieldtype": "Code",
+   "fieldtype": "Long Text",
    "label": "Error Log"
   },
   {
@@ -75,7 +75,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-05-13 08:48:58.365085",
+ "modified": "2023-05-13 11:53:46.340620",
  "modified_by": "Administrator",
  "module": "Eda",
  "name": "Consumer Logs",

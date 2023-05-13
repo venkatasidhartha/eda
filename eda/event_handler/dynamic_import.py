@@ -17,7 +17,7 @@ def executer(payload):
     }
     """
     try:
-        def __set_log_doctype(self,doc_uuid,hash,payload_,error_log=None,status=None):
+        def set_log_doctype(doc_uuid,hash,payload_,error_log=None,status=None):
             return {
                 "doc_uuid":doc_uuid,
                 "hash":hash,
@@ -26,7 +26,7 @@ def executer(payload):
                 "status":status
             }
         doc = Consumer()
-        new_doc = doc.insert(__set_log_doctype(doc_uuid=payload["doc_uuid"],hash=payload["hash"],payload_=payload["payload"]))
+        new_doc = doc.insert(set_log_doctype(doc_uuid=payload["doc_uuid"],hash=payload["hash"],payload_=payload))
         error = None
         status = "Processed"
         try:
@@ -39,6 +39,7 @@ def executer(payload):
             my_function(function_argument)
         except Exception as e:
             error = frappe.get_traceback()
+            frappe.log_error("Consumer Executer function faild inner try",message=error)
         if error != None:
             status = "Error" 
         doc.update_status({"status":status},new_doc.name)
