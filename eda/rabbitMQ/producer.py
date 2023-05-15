@@ -3,6 +3,7 @@ from pika.exchange_type import ExchangeType
 import json
 from eda.rabbitMQ.utility import eda_settings
 import frappe
+import ssl
 
 def publisher(message,routing_key):
     try:
@@ -11,9 +12,12 @@ def publisher(message,routing_key):
             exchange = settings.exchange
             message = json.dumps(message) #{"module":"eda_test_app.test","function":"test","argument":""}
             # Set credentials
-            credentials = pika.PlainCredentials(settings.user, settings.get_password('passwd'))
-            # Connect to RabbitMQ server
-            connection = pika.BlockingConnection(pika.ConnectionParameters(settings.url, credentials=credentials))
+            ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
+            ssl_context.set_ciphers('ECDHE+AESGCM:!ECDSA')
+            url = settings.url
+            parameters = pika.URLParameters(url)
+            parameters.ssl_options = pika.SSLOptions(context=ssl_context)
+            connection = pika.BlockingConnection(parameters)
             channel = connection.channel()
             # Declare exchange
             channel.exchange_declare(exchange=exchange, exchange_type=ExchangeType.topic)

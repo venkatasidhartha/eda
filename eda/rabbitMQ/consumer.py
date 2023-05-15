@@ -5,6 +5,7 @@ import frappe
 import time
 import json
 from eda.doc_event.consumer_doc import Consumer_log
+import ssl
 
 def start_consuming():
     try:
@@ -14,8 +15,12 @@ def start_consuming():
             queue_name = settings.queue_name
             exchange = settings.exchange
             routing_key = settings.routing_key
-            credentials = pika.PlainCredentials(settings.user, settings.get_password('passwd'))
-            connection = pika.BlockingConnection(pika.ConnectionParameters(settings.url, credentials=credentials))
+            ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
+            ssl_context.set_ciphers('ECDHE+AESGCM:!ECDSA')
+            url = settings.url
+            parameters = pika.URLParameters(url)
+            parameters.ssl_options = pika.SSLOptions(context=ssl_context)
+            connection = pika.BlockingConnection(parameters)
             channel = connection.channel()
             channel.exchange_declare(exchange=exchange, exchange_type=ExchangeType.topic)
             channel.queue_declare(queue_name, exclusive=False)
