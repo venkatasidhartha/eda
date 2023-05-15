@@ -1,7 +1,21 @@
-## Eda
+# To Use Library
 
-Event Driven Architecture
+See The below Code
 
-#### License
+```sh 
+from eda.publisher import Publisher --> Import this to your Program
+from eda.publisher import site_routing_key -->Import this to your Program
+p = Publisher() --> Inilize the class
+route_to = site_routing_key.procurement --> Choose the server to send your data
 
-MIT
+##Publisher.send() --> Takes Two Paramete first one is dict and second one is str, Please refer the below code 
+p.send({
+"module":"eda_test.receiver",
+"function":"receive_notes",
+"argument":{
+"note":"i am testing this end to end",
+"uuid":"23563452362346"
+},
+"doc_uuid":"1234567890"
+},route_to)
+```
