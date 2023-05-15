@@ -4,8 +4,9 @@ import json
 from eda.rabbitMQ.utility import eda_settings
 import frappe
 import ssl
+from eda.doc_event.producer_doc import Producer_log
 
-def publisher(message,routing_key):
+def publisher(message,routing_key,p_log_name):
     try:
         settings = eda_settings()
         if settings.switch:
@@ -28,3 +29,5 @@ def publisher(message,routing_key):
             connection.close()
     except Exception as e:
         frappe.log_error(title="RabbitMQ Publisher Faild",message=frappe.get_traceback())
+        update_doc = Producer_log()
+        update_doc.update({"error_log":frappe.get_traceback()},p_log_name)

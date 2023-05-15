@@ -14,6 +14,6 @@ def trigger_publish(doc):
         "hash":doc.hash,
         "payload":ast.literal_eval(doc.payload)
     }
-    publisher(pub_doc,doc.routed_to)
+    publisher(pub_doc,doc.routed_to,doc.name)
 
 
