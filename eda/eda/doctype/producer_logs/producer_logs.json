@@ -27,7 +27,8 @@
   {
    "fieldname": "timestamp",
    "fieldtype": "Data",
-   "label": "Timestamp"
+   "label": "Timestamp",
+   "set_only_once": 1
   },
   {
    "fieldname": "column_break_jzhm6",
@@ -36,7 +37,8 @@
   {
    "fieldname": "hash",
    "fieldtype": "Data",
-   "label": "Hash"
+   "label": "Hash",
+   "set_only_once": 1
   },
   {
    "fieldname": "section_break_lpsfj",
@@ -64,7 +66,8 @@
   {
    "fieldname": "doc_uuid",
    "fieldtype": "Data",
-   "label": "Doc UUID"
+   "label": "Doc UUID",
+   "set_only_once": 1
   },
   {
    "fieldname": "column_break_ujz58",
@@ -73,7 +76,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-05-13 11:52:54.438050",
+ "modified": "2023-05-15 14:46:38.156979",
  "modified_by": "Administrator",
  "module": "Eda",
  "name": "Producer Logs",

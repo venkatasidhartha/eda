@@ -1,26 +1,25 @@
 import frappe
 import calendar
 import time
+from eda.hashing import generate_hash
+from eda.doc_event.utility import validater
 
-
-class Producer:
+class Producer_log:
     def insert(self,record:dict):
         """{
                 "doc_uuid":"",
                 "routed_to":"",
-                "hash":"",
                 "payload":"",
-                "error_log":""
             }"""
         try:
+            validate = validater(record,["doc_uuid","routed_to","payload"])
             doc = {
                 "doctype":"Producer Logs",
                 "doc_uuid":record["doc_uuid"],
                 "timestamp":calendar.timegm(time.gmtime()),
                 "routed_to":record["routed_to"],
-                "hash":record["hash"],
+                "hash":generate_hash(),
                 "payload":str(record["payload"]),
-                "error_log":str(record["error_log"])
             }
             new_doc = frappe.get_doc(doc)
             new_doc.save(ignore_permissions=True)
@@ -29,5 +28,7 @@ class Producer:
             frappe.log_error(title="Producer Logs Doctype Insert Failed",message=frappe.get_traceback())
 
 
-    def update(self,record:dict):
+    def update(self,record:dict,id):
         pass
+
+
