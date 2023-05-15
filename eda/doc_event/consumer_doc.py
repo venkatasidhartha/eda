@@ -8,9 +8,7 @@ class Consumer_log:
         """{
                 "doc_uuid":"",
                 "hash":"",
-                "payload":"",
-                "error_log":"",
-                "status":""
+                "payload":""
             }"""
         try:
             doc = {
@@ -27,6 +25,7 @@ class Consumer_log:
             
             new_doc = frappe.get_doc(doc)
             new_doc.save(ignore_permissions=True)
+            frappe.db.commit()
             return new_doc
         except Exception as e:
             frappe.log_error(title="Consumer Logs Doctype Insert Failed",message=frappe.get_traceback())
