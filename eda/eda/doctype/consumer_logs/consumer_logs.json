@@ -57,7 +57,7 @@
   },
   {
    "fieldname": "payload",
-   "fieldtype": "Long Text",
+   "fieldtype": "Code",
    "label": "Payload"
   },
   {
@@ -78,7 +78,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-05-15 14:49:57.151640",
+ "modified": "2023-05-15 17:38:33.048461",
  "modified_by": "Administrator",
  "module": "Eda",
  "name": "Consumer Logs",

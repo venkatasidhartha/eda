@@ -9,8 +9,11 @@ def schedule_pub(doc,event=None):
     
 
 def trigger_publish(doc):
-    pub_doc = ast.literal_eval(doc.payload) 
-    pub_doc["hash"] = doc.hash
+    pub_doc = {
+        "doc_uuid":doc.doc_uuid,
+        "hash":doc.hash,
+        "payload":ast.literal_eval(doc.payload)
+    }
     publisher(pub_doc,doc.routed_to)
 
 

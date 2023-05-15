@@ -109,7 +109,7 @@ doc_events = {
 	},
 	"Consumer Logs":{
         "autoname":"eda.doc_event.naming.consumer_logs",
-        "after_insert":[""]
+        "after_insert":["eda.event_handler.consumer_trigger.schedule_pub"]
 	}
 }
 
@@ -117,9 +117,9 @@ doc_events = {
 # ---------------
 print("*"*40," EDA Scheduler Start ","*"*40)
 scheduler_events = {
-    # "cron":{
-    #      "* * * * *":["eda.rabbitMQ.consumer.start_consuming"]
-	# }
+    "cron":{
+         "* * * * *":["eda.rabbitMQ.consumer.start_consuming"]
+	}
 	# "all": [
 	# 	"eda.rabbitMQ.consumer.printme"
 	# ],
