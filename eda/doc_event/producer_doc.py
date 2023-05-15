@@ -30,6 +30,16 @@ class Producer_log:
 
 
     def update(self,record:dict,id):
-        pass
+        """{
+                "error_log":""
+        }"""
+        try:
+            update_doc = frappe.get_doc("Producer Logs",id)
+            if "error_log" in record:
+                update_doc.error_log = str(record["error_log"])
+            update_doc.save(ignore_permissions=True)
+        except Exception as e:
+            frappe.log_error(title="Producer Logs Doctype Update Failed",message=frappe.get_traceback())
+
 
 
