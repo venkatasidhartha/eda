@@ -46,7 +46,7 @@
   },
   {
    "fieldname": "payload",
-   "fieldtype": "Long Text",
+   "fieldtype": "Code",
    "label": "Payload"
   },
   {
@@ -76,7 +76,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-05-15 14:46:38.156979",
+ "modified": "2023-05-15 16:28:43.240823",
  "modified_by": "Administrator",
  "module": "Eda",
  "name": "Producer Logs",

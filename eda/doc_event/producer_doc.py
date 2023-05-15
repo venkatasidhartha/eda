@@ -23,6 +23,7 @@ class Producer_log:
             }
             new_doc = frappe.get_doc(doc)
             new_doc.save(ignore_permissions=True)
+            frappe.db.commit()
             return new_doc
         except Exception as error:
             frappe.log_error(title="Producer Logs Doctype Insert Failed",message=frappe.get_traceback())
