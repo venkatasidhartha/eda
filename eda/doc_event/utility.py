@@ -2,7 +2,8 @@ import frappe
 
 
 
-def check_keys(arr:list,record_dict:dict):
-    for i in arr:
-        if i not in record_dict:
-            pass 
+class validater:
+    def __init__(self,record:dict,keys:list=[]):
+        for key in keys:
+            if key not in record:
+                frappe.throw(f"{key} is missing")

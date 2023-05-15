@@ -104,10 +104,12 @@ app_license = "MIT"
 
 doc_events = {
 	"Producer Logs":{
-        "autoname":"eda.doc_event.naming.producer_logs"
+        "autoname":"eda.doc_event.naming.producer_logs",
+        "after_insert":["eda.event_handler.producer_trigger.schedule_pub"]
 	},
 	"Consumer Logs":{
-        "autoname":"eda.doc_event.naming.consumer_logs"
+        "autoname":"eda.doc_event.naming.consumer_logs",
+        "after_insert":[""]
 	}
 }
 
@@ -115,9 +117,9 @@ doc_events = {
 # ---------------
 print("*"*40," EDA Scheduler Start ","*"*40)
 scheduler_events = {
-    "cron":{
-         "* * * * *":["eda.rabbitMQ.consumer.start_consuming"]
-	}
+    # "cron":{
+    #      "* * * * *":["eda.rabbitMQ.consumer.start_consuming"]
+	# }
 	# "all": [
 	# 	"eda.rabbitMQ.consumer.printme"
 	# ],

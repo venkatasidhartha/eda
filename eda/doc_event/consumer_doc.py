@@ -3,7 +3,7 @@ import calendar
 import time
 
 
-class Consumer:
+class Consumer_log:
     def insert(self,record:dict):
         """{
                 "doc_uuid":"",
@@ -33,11 +33,17 @@ class Consumer:
 
     def update_status(self,record:dict,id):
         """{
+                "error_log":"",
                 "status":""
         }"""
-        update_doc = frappe.get_doc("Consumer Logs",id)
-        if "status" in record:
-            update_doc.status = record["status"]
-        update_doc.save(ignore_permissions=True)
+        try:
+            update_doc = frappe.get_doc("Consumer Logs",id)
+            if "error_log" in record:
+                update_doc.error_log = str(record["error_log"])
+            if "status" in record:
+                update_doc.status = record["status"]
+            update_doc.save(ignore_permissions=True)
+        except Exception as e:
+            frappe.log_error(title="Consumer Logs Doctype Update Failed",message=frappe.get_traceback())
 
         
