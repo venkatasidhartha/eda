@@ -1,6 +1,7 @@
 import frappe
 from eda.rabbitMQ.producer import publisher
 import json
+import ast
 
 
 def schedule_pub(doc,event=None):
@@ -8,7 +9,8 @@ def schedule_pub(doc,event=None):
     
 
 def trigger_publish(doc):
-    publisher(json.loads(doc.payload),doc.routed_to)
+    pub_doc = ast.literal_eval(doc.payload) 
+    pub_doc["hash"] = doc.hash
+    publisher(pub_doc,doc.routed_to)
 
 
-    
