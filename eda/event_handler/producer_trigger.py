@@ -8,7 +8,7 @@ def schedule_pub(doc,event=None):
     
 
 def trigger_publish(doc):
-    publisher(json.loads(doc.payload),doc.routed_to)
+    publisher(doc.payload,doc.routed_to)
 
 
     

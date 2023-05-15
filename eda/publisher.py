@@ -1,6 +1,5 @@
 
 import frappe
-from uuid import uuid4
 from eda.doc_event.utility import validater
 from eda.doc_event.producer_doc import Producer_log
 
