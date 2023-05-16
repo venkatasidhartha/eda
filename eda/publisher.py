@@ -11,7 +11,7 @@ class site_routing_key:
         for key, value in kwargs.items():
             setattr(self, key, value)
     def json_data(self):
-        data = eda_settings.servers
+        data = eda_settings().servers
         return ast.literal_eval(data)
     
 class Publisher:
