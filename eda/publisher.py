@@ -3,6 +3,7 @@ import frappe
 from eda.doc_event.utility import validater
 from eda.doc_event.producer_doc import Producer_log
 from eda.rabbitMQ.utility import eda_settings 
+import ast
 
 class site_routing_key:
     def __init__(self):
@@ -11,7 +12,7 @@ class site_routing_key:
             setattr(self, key, value)
     def json_data(self):
         data = eda_settings.servers
-        return data
+        return ast.literal_eval(data)
     
 class Publisher:
     def send(self,message:dict,to_server:str):
