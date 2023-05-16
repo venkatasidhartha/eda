@@ -2,12 +2,17 @@
 import frappe
 from eda.doc_event.utility import validater
 from eda.doc_event.producer_doc import Producer_log
+from eda.rabbitMQ.utility import eda_settings 
 
 class site_routing_key:
-    erp = ""
-    supplier = ""
-    procurement = "procurement.karkhana.io"
-
+    def __init__(self):
+        kwargs = self.json_data()
+        for key, value in kwargs.items():
+            setattr(self, key, value)
+    def json_data(self):
+        data = eda_settings.servers
+        return data
+    
 class Publisher:
     def send(self,message:dict,to_server:str):
         """

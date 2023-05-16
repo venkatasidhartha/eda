@@ -27,7 +27,7 @@ def start_consuming():
             channel.queue_bind(exchange=exchange, queue=queue_name, routing_key=routing_key)
             constumer_used = 0
             while True:
-                if constumer_used == 10:
+                if constumer_used == 100:
                     connection.close()
                     break
                 method_frame, header_frame, body = channel.basic_get(queue=queue_name, auto_ack=True)

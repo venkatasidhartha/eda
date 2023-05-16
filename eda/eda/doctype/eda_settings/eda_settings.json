@@ -18,7 +18,9 @@
   "column_break_jc0bz",
   "routing_key",
   "column_break_jzwq1",
-  "queue_name"
+  "queue_name",
+  "server_list_section",
+  "servers"
  ],
  "fields": [
   {
@@ -80,12 +82,22 @@
    "fieldname": "switch",
    "fieldtype": "Check",
    "label": "switch"
+  },
+  {
+   "fieldname": "server_list_section",
+   "fieldtype": "Section Break",
+   "label": "Server List"
+  },
+  {
+   "fieldname": "servers",
+   "fieldtype": "Code",
+   "label": "Servers"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2023-05-13 12:06:32.146825",
+ "modified": "2023-05-16 12:17:03.547823",
  "modified_by": "Administrator",
  "module": "Eda",
  "name": "EDA Settings",
