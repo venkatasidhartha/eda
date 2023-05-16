@@ -32,7 +32,7 @@ def start_consuming():
                     break
                 method_frame, header_frame, body = channel.basic_get(queue=queue_name, auto_ack=True)
                 if method_frame:
-                    frappe.enqueue("eda.rabbitMQ.consumer.background_insert",body=body,queue="short")
+                    frappe.enqueue("eda.rabbitMQ.consumer.background_insert", timeout=1000,body=body,queue="short")
                 else:
                     time.sleep(10)
                     constumer_used+=1
