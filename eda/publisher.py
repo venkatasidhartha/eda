@@ -39,4 +39,12 @@ class Publisher:
 
         
        
+def send_msg(module:str,function:str,argument:dict,doc_uuid:str,to_server:str):
+    p = Publisher()
+    p.send({
+        "module":module,
+        "function":function,
+        "argument":argument,
+        "doc_uuid":doc_uuid
+    },to_server)
           
